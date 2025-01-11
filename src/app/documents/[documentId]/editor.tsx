@@ -9,38 +9,39 @@ import TableHeader from "@tiptap/extension-table-header";
 import TableRow from "@tiptap/extension-table-row";
 import Image from "@tiptap/extension-image";
 import ImageResize from "tiptap-extension-resize-image";
-import Underline from "@tiptap/extension-underline"
+import Underline from "@tiptap/extension-underline";
 import StarterKit from "@tiptap/starter-kit";
-
+import FontFamily from "@tiptap/extension-font-family";
+import TextStyle from "@tiptap/extension-text-style";
 
 import { useEditorStore } from "@/store/use-editor-store";
 
 export const Editor = () => {
   const { setEditor } = useEditorStore();
   const editor = useEditor({
-    onCreate({editor}) {
-        setEditor(editor)
+    onCreate({ editor }) {
+      setEditor(editor);
     },
-    onUpdate({editor}) {
-        setEditor(editor)
+    onUpdate({ editor }) {
+      setEditor(editor);
     },
     onDestroy() {
-        setEditor(null)
+      setEditor(null);
     },
-    onSelectionUpdate({editor}) {
-      setEditor(editor)
+    onSelectionUpdate({ editor }) {
+      setEditor(editor);
     },
-    onTransaction({editor}) {
-        setEditor(editor)
+    onTransaction({ editor }) {
+      setEditor(editor);
     },
-    onFocus({editor}) {
-        setEditor(editor)
+    onFocus({ editor }) {
+      setEditor(editor);
     },
-    onBlur({editor}){
-      setEditor(editor)
+    onBlur({ editor }) {
+      setEditor(editor);
     },
-    onContentError({editor}) {
-        setEditor(editor)
+    onContentError({ editor }) {
+      setEditor(editor);
     },
     editorProps: {
       attributes: {
@@ -59,7 +60,9 @@ export const Editor = () => {
       TableCell,
       TableHeader,
       TableRow,
-      Underline
+      Underline,
+      FontFamily,
+      TextStyle,
     ],
     content: `<p>Hello world</p><table>
           <tbody>

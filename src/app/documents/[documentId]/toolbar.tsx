@@ -1,6 +1,5 @@
 "use client";
 import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
 import { useEditorStore } from "@/store/use-editor-store";
 import {
   BoldIcon,
@@ -15,30 +14,9 @@ import {
   UnderlineIcon,
   Undo2Icon,
 } from "lucide-react";
-
-interface ToolbarButtonProps {
-  onClick?: () => void;
-  isActive?: boolean;
-  icon: LucideIcon;
-}
-
-const ToolbarButton = ({
-  onClick,
-  isActive,
-  icon: Icon,
-}: ToolbarButtonProps) => {
-  return (
-    <button
-      onClick={onClick}
-      className={cn(
-        "text-sm h-7 min-w-7 flex items-center justify-center rounded-sm hover:bg-neutral-200/80",
-        isActive && "bg-neutral-200/80"
-      )}
-    >
-      <Icon className="size-4" />
-    </button>
-  );
-};
+import { FontFamilyButton } from "./font-family-button";
+import { ToolbarButton } from "./toolbar-button";
+import { HeadingLevelButton } from "./heading-level-button";
 
 export const Toolbar = () => {
   const { editor } = useEditorStore();
@@ -122,9 +100,9 @@ export const Toolbar = () => {
         <ToolbarButton key={item.label} {...item} />
       ))}
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
-      {/* TODO: Font family */}
+      <FontFamilyButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
-      {/* TODO: Heading */}
+      <HeadingLevelButton />
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
       {/* TODO: Font size */}
       <Separator orientation="vertical" className="h-6 bg-neutral-300" />
